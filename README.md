@@ -51,6 +51,10 @@ There are plenty of things left to be done. Both in terms of organizing the docu
 Suggested improvements:
 - [ ] the code itself is quite concise, but can be rendered hard to read because of all the scaladoc. You could write a [scalafix](https://scalacenter.github.io/scalafix/) script to help remove only the scaladoc, and keep the rest of the code intact. This may or may not help your colleagues understand the code better. This topic falls under "meta-programming" and will be covered towards the end of the class. But that's no reason to scare the determined student!
 
-- [ ] a better explanation of implicit resolution, conversion, and type-level programming is in order. We will be exploring this topic quite a lot in our implementation. But a centralized —down to earth— view on it would be welcome. Starting points to help synthesize an explanation: ["The Dialectics of Type-Level Programming by Aaron Levin"](https://www.youtube.com/watch?v=0wxGrf8toWk), [Implicit classes](https://docs.scala-lang.org/overviews/core/implicit-classes.html), [Implicit Conversions](https://docs.scala-lang.org/tour/implicit-conversions.html), [Implicit Parameter Precedence, again](http://eed3si9n.com/implicit-parameter-precedence-again)
+- [ ] a better explanation of implicit resolution, conversion, and type-level programming is in order. We will be exploring this topic quite a lot in our implementation. But a centralized —down to earth— view on it would be welcome. Starting points to help synthesize an explanation:
+  - ["The Dialectics of Type-Level Programming by Aaron Levin"](https://www.youtube.com/watch?v=0wxGrf8toWk)
+  - [Implicit classes](https://docs.scala-lang.org/overviews/core/implicit-classes.html)
+  - [Implicit Conversions](https://docs.scala-lang.org/tour/implicit-conversions.html)
+  - [Implicit Parameter Precedence, again](http://eed3si9n.com/implicit-parameter-precedence-again)
 
 - [ ] all reading materials are scattered throughout the code in scaladoc. And sometimes even duplicated. If anyone can come up with a scheme (that necessarily involves code) and renders our code-base more readable, and at the same time making it more obvious what concepts are involved in a language construct — while making it trivial to read up on these constructs, would be greatly appreciated. Essentially, build a code-like index.
