@@ -42,7 +42,7 @@ After installing SBT, you should go to the folder where you cloned this git repo
 
 You can start navigating in the main class found in `src/main/scala/plda/json_examples/MainJson`. From IntelliJ it is trivially runnable, you'll figure it out :). See how to run the [application from SBT](https://alvinalexander.com/scala/sbt-how-specify-main-method-class-to-run-in-project).  
 
-Then, you should also check out the unit tests found under `src/test/scala/...`. They can be run either from
+Then, you should also check out the unit tests found under `src/test/scala/...`. They can be run either from IntelliJ or SBT.
 
 ## Contributing
 
