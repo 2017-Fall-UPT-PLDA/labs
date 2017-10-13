@@ -58,3 +58,5 @@ Suggested improvements:
   - [Implicit Parameter Precedence, again](http://eed3si9n.com/implicit-parameter-precedence-again)
 
 - [ ] all reading materials are scattered throughout the code in scaladoc. And sometimes even duplicated. If anyone can come up with a scheme (that necessarily involves code) and renders our code-base more readable, and at the same time making it more obvious what concepts are involved in a language construct — while making it trivial to read up on these constructs, would be greatly appreciated. Essentially, build a code-like index.
+
+- [ ] any improvement in documentation, really. From comprehensive user-friendly guides to the overall development environment, various tips and tricks, and so forth.
