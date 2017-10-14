@@ -36,5 +36,4 @@ object JsonEncoder {
   private class JsonEncoderImpl[T](f: T => Json) extends JsonEncoder[T] {
     override def encode(t: T): Json = f(t)
   }
-
 }

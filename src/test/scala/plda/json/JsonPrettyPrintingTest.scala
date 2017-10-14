@@ -21,11 +21,9 @@ class JsonPrettyPrintingTest extends FunSpec {
     describe("behavior of flat object stringification") {
       it("simple flat object") {
         val expected = """{"answer_to_life_universe_and_everything_else":42,"question":"What do you get if you multiply six by nine?"}"""
-        val obj = JsonObject(
-          Map(
-            "answer_to_life_universe_and_everything_else" -> JsonNumber(42),
-            "question" -> JsonString("What do you get if you multiply six by nine?")
-          )
+        val obj = JsonValue (
+            "answer_to_life_universe_and_everything_else" -> JsonValue(42),
+            "question" -> JsonValue("What do you get if you multiply six by nine?")
         )
         val result = noSpaces(obj)
         println(result)
@@ -36,9 +34,9 @@ class JsonPrettyPrintingTest extends FunSpec {
         val expected = """{"otheranswers":[54,33],"answer_to_life_universe_and_everything_else":42,"question":"What do you get if you multiply six by nine?"}"""
         val obj = JsonObject(
           Map(
-            "otheranswers" -> JsonArray(List(JsonNumber(54), JsonNumber(33))),
-            "answer_to_life_universe_and_everything_else" -> JsonNumber(42),
-            "question" -> JsonString("What do you get if you multiply six by nine?"),
+            "otheranswers" -> JsonValue(JsonValue(54), JsonValue(33)),
+            "answer_to_life_universe_and_everything_else" -> JsonValue(42),
+            "question" -> JsonValue("What do you get if you multiply six by nine?"),
           )
         )
         val result = noSpaces(obj)
@@ -50,26 +48,18 @@ class JsonPrettyPrintingTest extends FunSpec {
     describe("nested objects") {
       it("stringify nested object") {
         val expected = """{"question":{"part1":"The answer to life?","part2":"The Universe?","part3":"And Everything else?"},"answer":42}"""
-        val obj = JsonObject(
-          Map[String, Json](
-            "question" -> JsonObject {
-              Map(
-                "part1" -> JsonString("The answer to life?"),
-                "part2" -> JsonString("The Universe?"),
-                "part3" -> JsonString("And Everything else?"),
-              )
-            },
-            "answer" -> JsonNumber(42),
-          )
+        val obj = JsonValue(
+            "question" -> JsonValue (
+                "part1" -> JsonValue("The answer to life?"),
+                "part2" -> JsonValue("The Universe?"),
+                "part3" -> JsonValue("And Everything else?"),
+            ),
+            "answer" -> JsonValue(42),
         )
         val result = noSpaces(obj)
         println(result)
         assert(expected == result)
       }
     }
-
-
   }
-
-
 }

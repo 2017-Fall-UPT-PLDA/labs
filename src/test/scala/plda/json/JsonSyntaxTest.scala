@@ -34,14 +34,10 @@ class JsonSyntaxTest extends FunSpec {
 
     describe("with implicit Encoder in scope") {
 
-      implicit val PLDALabEncoder: JsonEncoder[PLDALab] = new JsonEncoder[PLDALab] {
-        override def encode(t: PLDALab): Json = JsonObject(
-          Map(
-            "labNumber" -> JsonNumber(t.labNumber),
-            "topic" -> JsonString("topic")
-          )
-        )
-      }
+      implicit val PLDALabEncoder: JsonEncoder[PLDALab] = (t: PLDALab) => JsonValue (
+        "labNumber" -> JsonValue(t.labNumber),
+        "topic" -> JsonValue("topic")
+      )
 
       it("should compile by finding the encoder in scope") {
         assertCompiles(
@@ -114,14 +110,10 @@ class JsonSyntaxTest extends FunSpec {
   }
 
   describe("encoder + pretty printing syntax") {
-    implicit val PLDALabEncoder: JsonEncoder[PLDALab] = new JsonEncoder[PLDALab] {
-      override def encode(t: PLDALab): Json = JsonObject(
-        Map(
-          "labNumber" -> JsonNumber(t.labNumber),
-          "topic" -> JsonString("topic")
-        )
-      )
-    }
+    implicit val PLDALabEncoder: JsonEncoder[PLDALab] = (t: PLDALab) => JsonValue (
+        "labNumber" -> JsonValue(t.labNumber),
+        "topic" -> JsonValue("topic")
+    )
     it("should allow transforming to json then prettyPrinting") {
       assertCompiles(
         """
