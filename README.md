@@ -8,6 +8,7 @@ the explanations found in the code are as concise as possible, while giving enou
 ## Scala
 
 We will be using [Scala] in this class. Some quick (woefully incomplete) resources:
+- [Underscore.io books](https://underscore.io/training/). Underscore.io have created a great book series — available for free (on the right hand-side of the page for a book, beneath the book cover should be a download link) — that covers Scala quite extensively. Essential Scala, Creative Scala are great for starters. Advanced Scala with Cats, Advanced Scala with Shapeless are absolutely necessary for the long-term Scala/functional programming developer
 - [Tour of Scala](https://docs.scala-lang.org/tour/tour-of-scala.html)
 - [Cheatsheet](https://docs.scala-lang.org/cheatsheets/)
 - [Methods are not Functions](http://tpolecat.github.io/2014/06/09/methods-functions.html)
