@@ -22,7 +22,6 @@ final case class JsonNumber(value: BigDecimal) extends JsonValue
 final case class JsonArray(jss: List[JsonValue]) extends JsonValue
 
 final case class JsonObject(properties: Map[String, JsonValue]) extends JsonValue
-
 /**
   * Not implemented on purpose. We will see why in our next lab :)
   */

@@ -8,9 +8,7 @@ scalacOptions += "-Ypartial-unification"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % "test"
 
-
-libraryDependencies += "org.tpolecat" %% "cats-core" % "1.0.0-RC1"
-libraryDependencies += "org.tpolecat" %% "atto-core" % "0.6.1-M7"
+libraryDependencies += "org.typelevel" %% "cats-core" % "1.0.0-RC1"
 
 val circeVersion = "0.9.0-M2"
 
