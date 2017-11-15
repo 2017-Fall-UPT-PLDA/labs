@@ -13,6 +13,10 @@ trait JsonEncoder[T] {
   def encode(t: T): Json
 }
 
+trait JsonObjectEncoder[T] extends JsonEncoder[T] {
+  def encode(t: T): JsonObject
+}
+
 /**
   * We provide a convenient constructor so that instead of writing:
   * {{{
@@ -31,10 +35,19 @@ trait JsonEncoder[T] {
   *
   */
 object JsonEncoder {
+  def instance[A](implicit enc: JsonEncoder[A]): JsonEncoder[A] = enc
+
   def apply[T](f: T => Json): JsonEncoder[T] = new JsonEncoderImpl[T](f)
 
   private class JsonEncoderImpl[T](f: T => Json) extends JsonEncoder[T] {
     override def encode(t: T): Json = f(t)
   }
+}
 
+object JsonObjectEncoder {
+  def apply[T](f: T => JsonObject): JsonObjectEncoder[T] = new JsonObjectEncoderImpl[T](f)
+
+  private class JsonObjectEncoderImpl[T](f: T => JsonObject) extends JsonObjectEncoder[T] {
+    override def encode(t: T): JsonObject = f(t)
+  }
 }

@@ -9,6 +9,8 @@ scalacOptions += "-Ypartial-unification"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % "test"
 
 libraryDependencies += "org.typelevel" %% "cats-core" % "1.0.0-RC1"
+libraryDependencies +=  "com.chuusai" %% "shapeless" % "2.3.2"
+
 
 val circeVersion = "0.9.0-M2"
 

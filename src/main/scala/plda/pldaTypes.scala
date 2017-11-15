@@ -40,8 +40,8 @@ object PLDASamples {
     def number: Int
   }
 
-  private lazy val `Lorand Szakacs` = Instructor("Lorand Szakacs")
-  private lazy val `Marius Minea` = Instructor("Marius Minea")
+  val `Lorand Szakacs` = Instructor("Lorand Szakacs")
+  val `Marius Minea` = Instructor("Marius Minea")
 
   object week1 extends WeeklySample {
     override lazy val number: Int = 1

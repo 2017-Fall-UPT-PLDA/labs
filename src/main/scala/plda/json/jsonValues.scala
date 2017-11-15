@@ -21,7 +21,14 @@ final case class JsonNumber(value: BigDecimal) extends JsonValue
 
 final case class JsonArray(jss: List[JsonValue]) extends JsonValue
 
-final case class JsonObject(properties: Map[String, JsonValue]) extends JsonValue
+final case class JsonObject(properties: Map[String, JsonValue]) extends JsonValue {
+  def +(s: (String, JsonValue)): JsonObject = JsonObject(properties + s)
+}
+
+object JsonObject {
+  val empty: JsonObject = JsonObject(Map.empty)
+}
+
 /**
   * Not implemented on purpose. We will see why in our next lab :)
   */
