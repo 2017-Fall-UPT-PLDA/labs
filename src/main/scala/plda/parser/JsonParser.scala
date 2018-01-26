@@ -5,15 +5,17 @@ import plda.json._
 import scala.util.parsing.combinator.JavaTokenParsers
 
 object JsonParser extends JavaTokenParsers {
-  override val skipWhitespace: Boolean = true
-  val openBrace: Parser[String] = literal("{")
-  val closedBrace: Parser[String] = literal("}")
-  val quoteParser: Parser[Unit] = literal(""""""").map(_ => ())
+
+  override val skipWhitespace: Boolean        = true
+  val openBrace:               Parser[String] = literal("{")
+  val closedBrace:             Parser[String] = literal("}")
+  val quoteParser:             Parser[Unit]   = literal(""""""").map(_ => ())
+
   val field: Parser[String] = {
     for {
-      _ <- quoteParser
+      _       <- quoteParser
       content <- ident
-      _ <- quoteParser
+      _       <- quoteParser
     } yield content
   }
 
@@ -27,24 +29,24 @@ object JsonParser extends JavaTokenParsers {
   val property: Parser[(String, JsonValue)] = {
     for {
       fieldName: String <- field
-      _: String <- literal(":")
-      n: Json <- jsonNumber | jsonString | jsonObject
+      _:         String <- literal(":")
+      n:         Json   <- jsonNumber | jsonString | jsonObject
     } yield (fieldName, n)
   }
 
   lazy val jsonObject: Parser[JsonObject] = {
     for {
-      _ <- openBrace
+      _          <- openBrace
       properties <- repsep(property, literal(","))
-      _ <- closedBrace
+      _          <- closedBrace
     } yield JsonValue(properties: _*)
   }
 
   val jsonArray: Parser[JsonArray] = {
     for {
-      _ <- literal("[")
+      _       <- literal("[")
       content <- repsep(jsonParser | jsonString | jsonNumber, literal(","))
-      _ <- literal("]")
+      _       <- literal("]")
     } yield JsonArray(content)
   }
 
@@ -52,6 +54,3 @@ object JsonParser extends JavaTokenParsers {
     jsonObject | jsonArray
   }
 }
-
-
-
